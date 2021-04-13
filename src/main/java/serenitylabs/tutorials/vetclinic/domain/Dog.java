@@ -7,13 +7,17 @@ public class Dog {
     private final LocalDate dateOfBirth;
     private final String breed;
     private final String name;
-    private String colour;
+    private final String favouriteFood;
+    private final String colour;
+    private final String favouriteToy;
 
-    public Dog(String name, String breed, LocalDate dateOfBirth,String colour) {
+    public Dog(String name, String breed, LocalDate dateOfBirth, String colour, String favouriteFood, String favouriteToy) {
         this.name = name;
         this.breed = breed;
         this.dateOfBirth = dateOfBirth;
         this.colour = colour;
+        this.favouriteFood = favouriteFood;
+        this.favouriteToy = favouriteToy;
     }
 
     public String getName() {
@@ -28,12 +32,14 @@ public class Dog {
         return dateOfBirth;
     }
 
+    public String getColour() { return colour; }
+
+    public String getFavouriteFood() { return favouriteFood; }
+
+    public String getFavouriteToy() { return favouriteToy; }
+
     public static WithBreed called(String name) {
         return new DogBreeder(name);
-    }
-
-    public String getColour() {
-        return colour;
     }
 
     interface WithBreed {
@@ -50,6 +56,8 @@ public class Dog {
         private String breed;
         private LocalDate dateOfBirth;
         private String colour;
+        private String favouriteFood;
+        private String favouriteToy;
 
         public DogBreeder(String name) {
             this.name = name;
@@ -61,11 +69,21 @@ public class Dog {
         }
 
         public Dog bornOn(LocalDate birthday) {
-            return new Dog(name,breed,birthday,colour);
+            return new Dog(name,breed,birthday,colour,favouriteFood,favouriteToy);
         }
 
         public DogBreeder ofColour(String colour) {
             this.colour = colour;
+            return this;
+        }
+
+        public DogBreeder withFavouriteFood(String favouriteFood) {
+            this.favouriteFood = favouriteFood;
+            return this;
+        }
+
+        public DogBreeder withFavouriteToy(String favouriteToy) {
+            this.favouriteToy = favouriteToy;
             return this;
         }
     }
