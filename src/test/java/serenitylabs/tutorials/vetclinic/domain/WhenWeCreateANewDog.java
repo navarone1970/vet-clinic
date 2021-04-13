@@ -13,6 +13,19 @@ public class WhenWeCreateANewDog {
 
         Dog fido = Dog.called("Fido")
                 .ofBreed("Labrador")
+                .bornOn(birthday);
+
+        Assert.assertEquals("Fido",fido.getName());
+        Assert.assertEquals(LocalDate.of(2015,10,13),fido.getDateOfBirth());
+        Assert.assertEquals("Labrador",fido.getBreed());
+    }
+
+    @Test
+    public void a_dog_can_have_an_optional_colour(){
+        LocalDate birthday = LocalDate.of(2015,10,13);
+
+        Dog fido = Dog.called("Fido")
+                .ofBreed("Labrador")
                 .ofColour("Black")
                 .bornOn(birthday);
 
@@ -21,4 +34,5 @@ public class WhenWeCreateANewDog {
         Assert.assertEquals("Labrador",fido.getBreed());
         Assert.assertEquals("Black",fido.getColour());
     }
+
 }
