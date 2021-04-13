@@ -37,10 +37,14 @@ public class Dog {
     }
 
     interface WithBreed {
-        DogBreeder ofBreed(String breed);
+        WithColour ofBreed(String breed);
     }
 
-    public static class DogBreeder implements WithBreed {
+    interface WithColour {
+        DogBreeder ofColour(String colour);
+    }
+
+    public static class DogBreeder implements WithBreed,WithColour {
 
         private String name;
         private String breed;
