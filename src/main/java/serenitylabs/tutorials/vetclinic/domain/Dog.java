@@ -1,5 +1,6 @@
 package serenitylabs.tutorials.vetclinic.domain;
 
+import java.security.cert.CertPathBuilder;
 import java.time.LocalDateTime;
 
 public class Dog {
@@ -22,6 +23,10 @@ public class Dog {
         this.favouriteFood = favouriteFood;
     }
 
+    public static DogBuilder called(String name) {
+        return new DogBuilder(name);
+    }
+
     public String getName() {
         return name;
     }
@@ -39,4 +44,27 @@ public class Dog {
         return favouriteFood;
     }
 
+    public static class DogBuilder {
+        private String name;
+        private String breed;
+        private LocalDateTime birthday;
+
+        public DogBuilder(String name){
+            this.name = name;
+        }
+
+        public DogBuilder ofBreed(String breed) {
+            this.breed = breed;
+            return this;
+        }
+
+        public Dog build() {
+            return new Dog(name,breed,birthday);
+        }
+
+        public DogBuilder bornOn(LocalDateTime birthday) {
+            this.birthday = birthday;
+            return this;
+        }
+    }
 }
