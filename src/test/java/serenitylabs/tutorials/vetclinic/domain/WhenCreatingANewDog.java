@@ -14,8 +14,7 @@ public class WhenCreatingANewDog {
 
         Dog fido = Dog.called("Fido")
                 .ofBreed("Poodle")
-                .bornOn(birthday)
-                .build();
+                .bornOn(birthday);
 
         Assert.assertEquals("Fido",fido.getName());
         Assert.assertEquals("Poodle",fido.getBreed());
