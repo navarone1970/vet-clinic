@@ -8,7 +8,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 
 public class WhenWeCreateANewDog {
-
     @Test
     public void a_new_dog_should_have_a_name_and_a_breed_and_a_colour() throws Exception {
         Dog fido = Dog.called("Fido").ofBreed("Labrador").andOfColour("Black");
@@ -19,14 +18,12 @@ public class WhenWeCreateANewDog {
     }
 
     @Test
-    public void a_dog_should_printed_in_readable_form(){
+    public void a_new_dog_should_have_a_name_and_a_breed_and_a_colour_returned_as_a_string() throws Exception {
         Dog fido = Dog.called("Fido").ofBreed("Labrador").andOfColour("Black");
 
         assertThat(fido.toString(),is(equalTo("Fido the black labrador")));
         assertThat(fido.toString(),startsWith("Fido"));
         assertThat(fido.toString(),endsWith("labrador"));
-        assertThat(fido.toString(),containsString("black"));
-
     }
 
     @Test
@@ -35,6 +32,7 @@ public class WhenWeCreateANewDog {
 
         assertThat(fido.getColour(),contains("Black","White"));
         assertThat(fido.getColour(),hasItem("Black"));
-        assertThat(fido.getColour(),not(hasItem("Red")));
+
     }
+
 }
