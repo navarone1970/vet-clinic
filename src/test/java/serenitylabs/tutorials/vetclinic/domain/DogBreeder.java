@@ -15,6 +15,18 @@ public class DogBreeder implements WithBreed,WithColour {
         return new DogBreeder();
     }
 
+    public static DogBreeder aSmallDog() {
+        return aDog().ofBreed("Poodle");
+    }
+
+    public static DogBreeder aLargeDog() {
+        return aDog().ofBreed("Labrador");
+    }
+
+    public static DogBreeder aGuardDog() {
+        return aDog().ofBreed("Alsatian");
+    }
+
     public DogBreeder called(String name){
         this.name = name;
         return this;

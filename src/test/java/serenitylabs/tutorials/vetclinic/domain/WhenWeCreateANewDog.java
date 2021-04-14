@@ -11,51 +11,49 @@ public class WhenWeCreateANewDog {
     public void a_new_dog_should_have_a_name(){
         LocalDate birthday = LocalDate.of(2015,10,13);
 
-        Dog fido = DogBreeder.aDog()
-                .called("Fido")
-                .ofBreed("Labrador")
+        Dog fido = DogBreeder.aSmallDog()
+                .called("Spot")
                 .ofColour("Black")
+                .bornOn(birthday);
+
+        Assert.assertEquals("Spot",fido.getName());
+        Assert.assertEquals(LocalDate.of(2015,10,13),fido.getDateOfBirth());
+        Assert.assertEquals("Poodle",fido.getBreed());
+        Assert.assertEquals("Black",fido.getColour());
+    }
+
+    @Test
+    public void a_dog_can_have_an_optional_favourite_food(){
+        LocalDate birthday = LocalDate.of(2015,10,13);
+
+        Dog fido = DogBreeder.aLargeDog()
+                .called("Fido")
+                .ofColour("Black")
+                .withFavouriteFood("Beef")
                 .bornOn(birthday);
 
         Assert.assertEquals("Fido",fido.getName());
         Assert.assertEquals(LocalDate.of(2015,10,13),fido.getDateOfBirth());
         Assert.assertEquals("Labrador",fido.getBreed());
         Assert.assertEquals("Black",fido.getColour());
+        Assert.assertEquals("Beef",fido.getFavouriteFood());
     }
 
-//    @Test
-//    public void a_dog_can_have_an_optional_favourite_food(){
-//        LocalDate birthday = LocalDate.of(2015,10,13);
-//
-//        Dog fido = DogBreeder.aDog()
-//                .called("Fido")
-//                .ofBreed("Labrador")
-//                .ofColour("Black")
-//                .withFavouriteFood("Beef")
-//                .bornOn(birthday);
-//
-//        Assert.assertEquals("Fido",fido.getName());
-//        Assert.assertEquals(LocalDate.of(2015,10,13),fido.getDateOfBirth());
-//        Assert.assertEquals("Labrador",fido.getBreed());
-//        Assert.assertEquals("Black",fido.getColour());
-//        Assert.assertEquals("Beef",fido.getFavouriteFood());
-//    }
-//
-//    @Test
-//    public void a_dog_can_have_an_optional_favourite_toy(){
-//        LocalDate birthday = LocalDate.of(2015,10,13);
-//
-//        Dog fido = Dog.called("Fido")
-//                .ofBreed("Labrador")
-//                .ofColour("Black")
-//                .withFavouriteToy("Ball")
-//                .bornOn(birthday);
-//
-//        Assert.assertEquals("Fido",fido.getName());
-//        Assert.assertEquals(LocalDate.of(2015,10,13),fido.getDateOfBirth());
-//        Assert.assertEquals("Labrador",fido.getBreed());
-//        Assert.assertEquals("Black",fido.getColour());
-//        Assert.assertEquals("Ball",fido.getFavouriteToy());
-//    }
-//
+    @Test
+    public void a_dog_can_have_an_optional_favourite_toy(){
+        LocalDate birthday = LocalDate.of(2015,10,13);
+
+        Dog fido = DogBreeder.aGuardDog()
+                .called("Rover")
+                .ofColour("Black")
+                .withFavouriteToy("Ball")
+                .bornOn(birthday);
+
+        Assert.assertEquals("Rover",fido.getName());
+        Assert.assertEquals(LocalDate.of(2015,10,13),fido.getDateOfBirth());
+        Assert.assertEquals("Alsatian",fido.getBreed());
+        Assert.assertEquals("Black",fido.getColour());
+        Assert.assertEquals("Ball",fido.getFavouriteToy());
+    }
+
 }
